@@ -1,5 +1,14 @@
 server:
-  port: 8888
+  port: 3500
 spring:
   application:
     name: crm_config_server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/defers/crm_app_microservices-configserver
+          clone-on-start: true
+
+customers:
+  value: 10
