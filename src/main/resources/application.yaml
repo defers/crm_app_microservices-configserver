@@ -1,3 +1,9 @@
+spring:
+  profiles:
+    active: dev
+
+---
+
 server:
   port: 3500
 spring:
@@ -7,8 +13,14 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/defers/crm_app_microservices-configserver
+          uri: https://github.com/defers/crm_app_microservices-configserver-properties.git
           clone-on-start: true
-
-customers:
-  value: 10
+          refresh-rate: 300
+  config:
+    activate:
+      on-profile: dev
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
